@@ -1,7 +1,6 @@
 import pandas as pd
 import os
 
-//hi
 def load_iris_dataset(file_path=None):
     """Load IRIS dataset from file"""
 
