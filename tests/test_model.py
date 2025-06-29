@@ -1,8 +1,8 @@
 import pytest
-from src.data_loader import load_iris_dataset
-from src.preprocessing import preprocess_iris_data
-from src.model import IrisModel
-from src.evaluation import evaluate_model_performance, validate_model_performance
+from data_loader import load_iris_dataset
+from preprocessing import preprocess_iris_data
+from model import IrisModel
+from evaluation import evaluate_model_performance, validate_model_performance
 
 class TestIrisModel:
 

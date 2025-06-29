@@ -1,6 +1,6 @@
 import pytest
 import pandas as pd
-from src.data_loader import load_iris_dataset
+from data_loader import load_iris_dataset
 
 class TestDataValidation:
 
