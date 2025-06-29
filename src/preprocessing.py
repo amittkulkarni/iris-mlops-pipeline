@@ -3,8 +3,12 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 
 def validate_iris_data(df):
     """Validate IRIS dataset structure and content"""
-    required_columns = ['sepal length', 'sepal width',
-                        'petal length', 'petal width']
+
+    if df is None or df.empty:
+        raise ValueError("DataFrame is None or empty")
+    
+    required_columns = ['sepal_length', 'sepal_width',
+                        'petal_length', 'petal_width']
 
     # Check if required columns exist
     missing_cols = [col for col in required_columns if col not in df.columns]
@@ -31,8 +35,8 @@ def preprocess_iris_data(df):
     processed_df = df.copy()
 
     # Extract features and target
-    feature_columns = ['sepal length', 'sepal width',
-                       'petal length', 'petal width']
+    feature_columns = ['sepal_length', 'sepal_width',
+                       'petal_length', 'petal_width']
 
     # Scale features
     scaler = StandardScaler()

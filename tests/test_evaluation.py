@@ -1,9 +1,9 @@
 import pytest
 import numpy as np
-from src.evaluation import evaluate_model_performance, validate_model_performance, sanity_test_predictions
-from src.model import IrisModel
-from src.data_loader import load_iris_dataset
-from src.preprocessing import preprocess_iris_data
+from evaluation import evaluate_model_performance, validate_model_performance, sanity_test_predictions
+from model import IrisModel
+from data_loader import load_iris_dataset
+from preprocessing import preprocess_iris_data
 
 class TestEvaluation:
 
@@ -49,8 +49,8 @@ class TestEvaluation:
         df = load_iris_dataset()
         processed_df, scaler = preprocess_iris_data(df)
 
-        feature_cols = ['sepal length', 'sepal width',
-                        'petal length', 'petal width']
+        feature_cols = ['sepal_length', 'sepal_width',
+                        'petal_length', 'petal_width']
         X = processed_df[feature_cols]
         y = processed_df['target']
 
