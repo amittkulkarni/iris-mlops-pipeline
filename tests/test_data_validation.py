@@ -16,8 +16,8 @@ class TestDataValidation:
         df = load_iris_dataset()
 
         # Check required columns
-        required_columns = ['sepal length', 'sepal width',
-                            'petal length', 'petal width']
+        required_columns = ['sepal_length', 'sepal_width',
+                            'petal_length', 'petal_width']
         for col in required_columns:
             assert col in df.columns
 
@@ -33,8 +33,8 @@ class TestDataValidation:
     def test_no_duplicates(self):
         """Test that dataset has no duplicate records"""[6]
         df = load_iris_dataset()
-        feature_cols = ['sepal length', 'sepal width',
-                        'petal length', 'petal width']
+        feature_cols = ['sepal_length', 'sepal_width',
+                        'petal_length', 'petal_width']
         assert not df[feature_cols].duplicated().any(), "Dataset contains duplicate records"
 
     def test_data_ranges(self):
@@ -42,8 +42,8 @@ class TestDataValidation:
         df = load_iris_dataset()
 
         # All measurements should be positive
-        feature_cols = ['sepal length', 'sepal width',
-                        'petal length', 'petal width']
+        feature_cols = ['sepal_length', 'sepal_width',
+                        'petal_length', 'petal_width']
         for col in feature_cols:
             assert (df[col] > 0).all(), f"Negative values found in {col}"
 

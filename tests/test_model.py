@@ -12,8 +12,8 @@ class TestIrisModel:
         df = load_iris_dataset()
         processed_df, scaler = preprocess_iris_data(df)
 
-        feature_cols = ['sepal length', 'sepal width',
-                        'petal length', 'petal width']
+        feature_cols = ['sepal_length', 'sepal_width',
+                        'petal_length', 'petal_width']
         X = processed_df[feature_cols]
         y = processed_df['target']
 
