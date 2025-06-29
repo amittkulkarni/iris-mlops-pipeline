@@ -37,6 +37,32 @@ jobs:
           --cov-report=term-missing
       continue-on-error: true
 
+    - name: Debug environment and run pytest
+      env:
+        PYTHONPATH: ${{ github.workspace }}/src:${{ env.PYTHONPATH }}
+      run: |
+        echo "Current directory: $(pwd)"
+        echo "Files in current directory:"
+        ls -la
+        echo "Python path:"
+        python -c "import sys; print('\n'.join(sys.path))"
+        echo "Testing data loader function:"
+        python -c "
+        import sys, os
+        sys.path.insert(0, 'src')
+        from data_loader import load_iris_dataset
+        df = load_iris_dataset()
+        print(f'DataFrame type: {type(df)}')
+        print(f'DataFrame shape: {df.shape if df is not None else None}')
+        print(f'DataFrame columns: {list(df.columns) if df is not None else None}')
+        "
+
+        pytest tests/ -v \
+          --junitxml=pytest-report.xml \
+          --cov=src \
+          --cov-report=xml \
+          --cov-report=term-missing
+
     - name: Publish test results
       uses: dorny/test-reporter@v2
       if: always()

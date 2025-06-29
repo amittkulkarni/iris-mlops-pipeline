@@ -3,6 +3,10 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 
 def validate_iris_data(df):
     """Validate IRIS dataset structure and content"""
+
+    if df is None or df.empty:
+        raise ValueError("DataFrame is None or empty")
+    
     required_columns = ['sepal_length', 'sepal_width',
                         'petal_length', 'petal_width']
 
