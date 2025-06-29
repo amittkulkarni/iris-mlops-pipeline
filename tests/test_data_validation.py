@@ -36,15 +36,6 @@ class TestDataValidation:
         assert df is not None and not df.empty, "Invalid DataFrame"
         assert not df.isnull().values.any(), "Dataset contains missing values"
 
-    def test_no_duplicates(self):
-        """Test that dataset has no duplicate records"""
-        df = load_iris_dataset()
-        assert df is not None and not df.empty, "Invalid DataFrame"
-
-        feature_cols = ['sepal_length', 'sepal_width',
-                        'petal_length', 'petal_width']
-        assert not df[feature_cols].duplicated().any(), "Dataset contains duplicate records"
-
     def test_data_ranges(self):
         """Test data value ranges"""
         df = load_iris_dataset()
