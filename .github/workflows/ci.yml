@@ -2,9 +2,9 @@ name: 'IRIS MLOps Pipeline CI/CD'
 
 on:
   push:
-    branches: [ dev, main ]
+    branches: [ dev, master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 permissions:
   contents: read
